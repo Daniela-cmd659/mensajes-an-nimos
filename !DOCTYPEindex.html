@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Enviar mensaje anónimo</title>
+  <style>
+    body {
+        background-color: #f3e8ff;
+        color: #4a0260;
+        font-family: 'Segoe UI', sans-serif;
+        padding: 40px;
+        text-align: center;
+    }
+    form {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        max-width: 500px;
+        margin: auto;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+    input, textarea {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border: 2px solid #d8b4fe;
+        border-radius: 8px;
+        font-size: 1em;
+    }
+    button {
+        background-color: #a855f7;
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1em;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #9333ea;
+    }
+  </style>
+</head>
+<body>
+  <h1>💌 Enviar mensaje anónimo</h1>
+
+  <form id="anonForm" action="https://formsubmit.co/daguilarnava20@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="Nuevo mensaje anónimo">
+      
+      <input type="password" id="clave" name="clave" placeholder="Contraseña" required>
+      <input type="text" name="from" placeholder="Tu nombre (opcional)">
+      <input type="text" name="to" placeholder="¿A quién va dirigido?" required>
+      <textarea name="message" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+      <button type="submit">Enviar mensaje</button>
+  </form>
+
+  <script>
+    document.getElementById("anonForm").addEventListener("submit", function(e) {
+      const clave = document.getElementById("clave").value;
+      if (clave !== "444") {
+        e.preventDefault(); // Bloquea el envío
+        alert("❌ Contraseña incorrecta. No puedes enviar el mensaje.");
+      }
+    });
+  </script>
+</body>
+</html>
